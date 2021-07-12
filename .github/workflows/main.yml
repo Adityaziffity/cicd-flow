@@ -7,12 +7,13 @@ on:
         required: true
 jobs:
   dev:
-    name: linux ssh shell command execution
+    name: dev deployment
     if: ${{ github.event.inputs.name == 'dev'}}
     runs-on: ubuntu-latest
     steps:
-    - name: terraform plan
-      run: echo "test"
+    - name: checks
+      run: echo "dev"
+      
 #     - name: executing remote ssh commands using password
 #       uses: appleboy/ssh-action@master
 #       with:
@@ -22,12 +23,28 @@ jobs:
 #         port: 22
 #         script: echo 'this is dev environment'
   test:
-    name: linux ssh shell command execution
+    name: test deployment
     if: ${{ github.event.inputs.name == 'test'}}
     runs-on: ubuntu-latest
     steps:
-    - name: terraform plan
+    - name: checks
       run: echo "test"
+    
+#     - name: executing remote ssh commands using password
+#       uses: appleboy/ssh-action@master
+#       with:
+#         host: ${{ secrets.HOST }}
+#         username: ${{ secrets.USERNAME }}
+#         password: ${{ secrets.PASSWORD }}
+#         port: 22
+#         script: echo 'this is test environment'
+  prod:
+    name: prod deployment
+    if: ${{ github.event.inputs.name == 'prod'}}
+    runs-on: ubuntu-latest
+    steps:
+    - name: checks
+      run: echo "prod"
     
 #     - name: executing remote ssh commands using password
 #       uses: appleboy/ssh-action@master
