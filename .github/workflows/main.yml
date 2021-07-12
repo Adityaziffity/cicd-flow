@@ -1,0 +1,39 @@
+name: provision the eks resources
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "target environment name"
+        required: true
+jobs:
+  dev:
+    name: linux ssh shell command execution
+    if: ${{ github.event.inputs.name == 'dev'}}
+    runs-on: ubuntu-latest
+    steps:
+    - name: terraform plan
+      run: echo "test"
+#     - name: executing remote ssh commands using password
+#       uses: appleboy/ssh-action@master
+#       with:
+#         host: ${{ secrets.HOST }}
+#         username: ${{ secrets.USERNAME }}
+#         password: ${{ secrets.PASSWORD }}
+#         port: 22
+#         script: echo 'this is dev environment'
+  test:
+    name: linux ssh shell command execution
+    if: ${{ github.event.inputs.name == 'test'}}
+    runs-on: ubuntu-latest
+    steps:
+    - name: terraform plan
+      run: echo "test"
+    
+#     - name: executing remote ssh commands using password
+#       uses: appleboy/ssh-action@master
+#       with:
+#         host: ${{ secrets.HOST }}
+#         username: ${{ secrets.USERNAME }}
+#         password: ${{ secrets.PASSWORD }}
+#         port: 22
+#         script: echo 'this is test environment'
