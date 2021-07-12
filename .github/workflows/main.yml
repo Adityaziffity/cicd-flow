@@ -1,4 +1,4 @@
-name: provision the eks resources
+name: magento deployment
 on:
   workflow_dispatch:
     inputs:
