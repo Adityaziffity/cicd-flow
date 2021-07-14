@@ -14,14 +14,6 @@ jobs:
     - name: checks
       run: echo "dev"
       
-#     - name: executing remote ssh commands using password
-#       uses: appleboy/ssh-action@master
-#       with:
-#         host: ${{ secrets.HOST }}
-#         username: ${{ secrets.USERNAME }}
-#         password: ${{ secrets.PASSWORD }}
-#         port: 22
-#         script: echo 'this is dev environment'
   test:
     name: test deployment
     if: ${{ github.event.inputs.name == 'test'}}
@@ -30,14 +22,6 @@ jobs:
     - name: checks
       run: echo "test"
     
-#     - name: executing remote ssh commands using password
-#       uses: appleboy/ssh-action@master
-#       with:
-#         host: ${{ secrets.HOST }}
-#         username: ${{ secrets.USERNAME }}
-#         password: ${{ secrets.PASSWORD }}
-#         port: 22
-#         script: echo 'this is test environment'
   prod:
     name: prod deployment
     if: ${{ github.event.inputs.name == 'prod'}}
@@ -45,12 +29,4 @@ jobs:
     steps:
     - name: checks
       run: echo "prod"
-    
-#     - name: executing remote ssh commands using password
-#       uses: appleboy/ssh-action@master
-#       with:
-#         host: ${{ secrets.HOST }}
-#         username: ${{ secrets.USERNAME }}
-#         password: ${{ secrets.PASSWORD }}
-#         port: 22
-#         script: echo 'this is test environment'
+
